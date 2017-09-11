@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{974AC2F2-46E0-0DFD-715D-C25F1301C6FE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+    <CompilerResponseFile></CompilerResponseFile>
+    <UnityProjectType>Editor:5</UnityProjectType>
+    <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
+    <UnityVersion>2017.1.0f3</UnityVersion>
+    <RootNamespace></RootNamespace>
+    <LangVersion>6</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Debug\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Debug\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_1_0;UNITY_2017_1;UNITY_2017;PLATFORM_ARCH_64;UNITY_64;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;ENABLE_SPRITE_MASKING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_RMGUI;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_STYLE_SHEETS;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU;FD_GLASS</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Release\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Release\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_1_0;UNITY_2017_1;UNITY_2017;PLATFORM_ARCH_64;UNITY_64;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;ENABLE_SPRITE_MASKING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_RMGUI;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_STYLE_SHEETS;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU;FD_GLASS</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEditor">
+      <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Advertisements">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Advertisements.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>Library\UnityAssemblies\UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TestRunner">
+      <HintPath>Library\UnityAssemblies\UnityEditor.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TestRunner">
+      <HintPath>Library\UnityAssemblies\UnityEngine.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>Library\UnityAssemblies\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Timeline">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Timeline">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TreeEditor">
+      <HintPath>Library\UnityAssemblies\UnityEditor.TreeEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Analytics">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Analytics">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.HoloLens">
+      <HintPath>Library\UnityAssemblies\UnityEditor.HoloLens.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.HoloLens">
+      <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Purchasing">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Purchasing.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.VR">
+      <HintPath>Library\UnityAssemblies\UnityEditor.VR.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Graphs">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Android.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Android.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WSA.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.WSA.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WebGL.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.WebGL.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.LinuxStandalone.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.OSXStandalone.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.OSXStandalone.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Facebook.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Facebook.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
+      <HintPath>Library\UnityAssemblies\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil">
+      <HintPath>Library\UnityAssemblies\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook.Unity.Settings">
+      <HintPath>Library\FacebookSDK\Facebook.Unity.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-UnityScript">
+      <HintPath>Library\ScriptAssemblies\Assembly-UnityScript.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Renze.csproj">
+      <Project>{88009769-CC40-F843-97C0-6C2BDBA10F6A}</Project>
+      <Name>Renze</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\Fantastic Glass\Editor\Editor_CreateGlass.cs" />
+    <Compile Include="Assets\Fantastic Glass\Editor\Editor_Glass_UpdateUtility.cs" />
+    <Compile Include="Assets\Fantastic Glass\Editor\GlassPackageSetup.cs" />
+    <Compile Include="Assets\Fantastic Glass\Mesh Animator\Editor\MeshAnimator_Creator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Fantastic Glass\Shaders\Resources\DepthWorldNormals_BackFace.shader" />
+    <None Include="Assets\Fantastic Glass\Shaders\Resources\DepthWorldNormals_FrontFace.shader" />
+    <None Include="Assets\Fantastic Glass\Shaders\Resources\Glass.shader" />
+    <None Include="Assets\Fantastic Glass\XML\Amber Cube 1.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Amber Cube 1_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Amber Cube 2.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Amber Cube 2_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Amber Cube.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Amber Cube_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Amber Liquid 1.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Amber Nugget.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Amber Rock 2.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Amber Rock.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Amber Rock_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Amethyst Flanders.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Amethyst.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Beer.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Beer_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Bell Jar.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Blood.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Box and Domes.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Box and Domes_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Bulb 2.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Bulb.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Bulb_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Bumpy Sphere.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Bumpy Sphere_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Chair Surface 1.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Chair Surface 2.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Clear Chess Peice 2.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Clear Chess Peice 2_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Clear Glass Inner.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Clear Glass Inner_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Clear Glass Outer.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Clear Glass Outer_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Clear Glass Twice.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Clear Glass Twice_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Clear Glass.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Clear Glass_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Cloudy Green Plastic.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Cloudy Purple Plastic 2.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Cloudy Purple Plastic 3.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Cloudy Purple Plastic 4.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Cloudy Purple Plastic _ Ordered.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Cloudy Purple Plastic.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Cloudy Purple Plastic_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Default.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Default_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Emerald Gem.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Emerald Gem_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Emerald Jewel.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Emerald Jewel_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Emerald Logo.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Emerald Logo_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Fade Glass Example.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Frosted Logo.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Frosted Logo_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Glass Box.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Glass Box_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Glass Chess Piece.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Glass Chess Piece_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Goop.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Hard Acrylic.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Hard Acrylic_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Honey Logo.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Honey Logo_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Ice Cube 1.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Ice Cube 1_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Ice Cube 2.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Ice Cube 2_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Iceberg 1.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Iceberg 1_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Iceberg 2.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Iceberg.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Iceberg_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Jam Jar.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Jam Jar_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Jewel Amethyst.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Jewel Amethyst_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Jewel Garnet.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Jewel Garnet_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Jewel Quartz.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Jewel Quartz_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Jewel Ruby.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Jewel Ruby_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Jewel Topaz.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Jewel Topaz_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Magic Box.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Marble.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Marble_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Milk.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Milk_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Milky Ice Cube.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Milky Ice Cube_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Ocean.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Ocean_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Outer Eye.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Outer Eye_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Pint Glass 1.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Pint Glass 2.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Pint Glass.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Pint Glass_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Plane Bump.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Plane Bump_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Plastic Box.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Plastic Box_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Random Statue.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Random Statue_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Rose Petal.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Rose Petal_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Rose Stem.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Rough Box.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Rough Box_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Ruby Gem.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Ruby Gem_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Smooth Amber Nugget.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Smooth Amber Nugget_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Soap Gem.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Soap Gem_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Stained Glass Logo 2.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Stained Glass Logo 2_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Stained Glass Logo 3.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Stained Glass Logo.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Stained Glass Logo_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Strange Plastic Box.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Strange Plastic Box_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Swamp.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Swamp_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Table Surface 1.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Table Surface 1_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Text.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Text_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Thick Clear Glass.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Thick Clear Glass_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Thick Flourescent.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Water (Exaggerated).xml" />
+    <None Include="Assets\Fantastic Glass\XML\Water.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Water_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Whisky Glass.xml" />
+    <None Include="Assets\Fantastic Glass\XML\Whisky Glass_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\chipped container.xml" />
+    <None Include="Assets\Fantastic Glass\XML\chipped container_GlassManagerSettings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\glass_editor_settings.xml" />
+    <None Include="Assets\Fantastic Glass\XML\glass_preset_list.xml" />
+    <None Include="Assets\Fantastic Glass\XML\glass_system_settings.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="GenerateTargetFrameworkMonikerAttribute" />
+</Project>
