@@ -115,7 +115,10 @@ namespace Assets.Scripts.Terrain {
 
             mesh.uv = uvs;
             GetComponent<MeshFilter>().mesh = mesh;
-            GetComponent<MeshRenderer>().material.mainTexture = Atlas;
+            var mat = GetComponent<MeshRenderer>().material;
+            mat.mainTexture = Atlas;
+            mat.SetFloat("_Metallic", 1f);
+            mat.SetFloat("_Glossiness", 0f);
         }
     }
 }
