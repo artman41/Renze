@@ -1,69 +1,121 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Assets.Scripts.Attributes;
+using NUnit.Framework;
 using UnityEngine;
 
-public class CubeTexture : MonoBehaviour {
-
-    public Texture2D[] Textures; //front, side, top
-    public Texture2D Atlas;
-
-    // Use this for initialization
-    void Start () {
-	    var mf = GetComponent<MeshFilter>();
-        Mesh mesh = mf?.mesh;
-
-	    if (mesh == null || mesh.uv.Length != 24) {
-	        Debug.Log("Script needs to be attached to built-in Cube!");
-	        return;
-	    }
-
-        Atlas = new Texture2D(2000, 2000);
-        var rects = Atlas.PackTextures(Textures, 2, 2000);
-
-	    var uvs = mesh.uv;
-
-	    // Front  
-        uvs[0] = rects[0].min;  //new Vector2(0.0f, 0.0f);
-        uvs[1] = new Vector2(rects[0].width, 0.0f); //new Vector2(0.333f, 0.0f);
-        uvs[2] = new Vector2(0.0f, rects[0].height); //new Vector2(0.0f, 0.333f);
-	    uvs[3] = rects[0].max; //new Vector2(0.333f, 0.333f);
-
-        /*
-	    // Top
-	    uvs[8] = new Vector2(0.334f, 0.0f);
-	    uvs[9] = new Vector2(0.666f, 0.0f);
-	    uvs[4] = new Vector2(0.334f, 0.333f);
-	    uvs[5] = new Vector2(0.666f, 0.333f);
-
-	    // Back
-	    uvs[10] = new Vector2(0.667f, 0.0f);
-	    uvs[11] = new Vector2(1.0f, 0.0f);
-	    uvs[6] = new Vector2(0.667f, 0.333f);
-	    uvs[7] = new Vector2(1.0f, 0.333f);
-
-	    // Bottom
-	    uvs[12] = new Vector2(0.0f, 0.334f);
-	    uvs[14] = new Vector2(0.333f, 0.334f);
-	    uvs[15] = new Vector2(0.0f, 0.666f);
-	    uvs[13] = new Vector2(0.333f, 0.666f);
-
-	    // Left
-	    uvs[16] = new Vector2(0.334f, 0.334f);
-	    uvs[18] = new Vector2(0.666f, 0.334f);
-	    uvs[19] = new Vector2(0.334f, 0.666f);
-	    uvs[17] = new Vector2(0.666f, 0.666f);
-
-	    // Right        
-	    uvs[20] = new Vector2(0.667f, 0.334f);
-	    uvs[22] = new Vector2(1.00f, 0.334f);
-	    uvs[23] = new Vector2(0.667f, 0.666f);
-	    uvs[21] = new Vector2(1.0f, 0.666f);
-        */
-	    mesh.uv = uvs;
+namespace Assets.Scripts.Terrain {
+    public enum CubeFaces {
+        FRONT,
+        BACK,
+        LEFT,
+        RIGHT,
+        TOP,
+        BOTTOM
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    public class CubeTexture : MonoBehaviour {
+
+        [Serializable]
+        public class TextureClassifier {
+            public Texture2D Item1;
+            public CubeFaces[] Item2;
+
+            public TextureClassifier(Texture2D t, CubeFaces[] c) {
+                Item1 = t;
+                Item2 = c;
+            }
+        }
+
+        [Serializable]
+        public class RectClassifier {
+            public Rect Rect;
+            public CubeFaces[] Face;
+
+            public RectClassifier(Rect t, CubeFaces[] c) {
+                Rect = t;
+                Face = c;
+            }
+        }
+
+        public TextureClassifier[] Textures; //front, side, top
+        [ReadOnly] public Texture2D Atlas;
+        [ReadOnly] public List<RectClassifier> rects;
+
+        // Use this for initialization
+        void Start() {
+            var mf = GetComponent<MeshFilter>();
+            Mesh mesh = mf?.mesh;
+
+            if (mesh == null || mesh.uv.Length != 24) {
+                Debug.Log("Script needs to be attached to built-in Cube!");
+                return;
+            }
+
+            Atlas = new Texture2D(1000, 1000);
+            rects = new List<RectClassifier>();
+
+            var y = Atlas.PackTextures(Textures.Select(o => o.Item1).ToArray(), 0);
+
+            for (int i = 0; i < Textures.Length; i++) {
+                rects.Add(new RectClassifier(y[i], Textures[i].Item2));
+            }
+
+            var uvs = mesh.uv;
+
+            var firstOrDefault = rects.FirstOrDefault(o => o.Face.Contains(CubeFaces.FRONT));
+            var rect = firstOrDefault?.Rect ?? rects[0].Rect;
+            // Front  
+            uvs[0] = rect.position; //new Vector2(0.0f, 0.0f);                                                  bl
+            uvs[1] = new Vector2(rect.position.x + rect.width, rect.position.y); //new Vector2(0.333f, 0.0f);                  br
+            uvs[2] = new Vector2(rect.position.x, rect.position.y + rect.height); //new Vector2(0.0f, 0.333f);                 tl
+            uvs[3] = new Vector2(rect.position.x + rect.width, rect.position.y + rect.height); //new Vector2(0.333f, 0.333f);                    tr
+
+            firstOrDefault = rects.FirstOrDefault(o => o.Face.Contains(CubeFaces.BACK));
+            rect = firstOrDefault?.Rect ?? rects[0].Rect;
+            // Back
+            uvs[10] = rect.position; //new Vector2(0.0f, 0.0f);                                                 bl
+            uvs[11] = new Vector2(rect.position.x + rect.width, rect.position.y); //new Vector2(0.333f, 0.0f);                 br
+            uvs[6] = new Vector2(rect.position.x, rect.position.y + rect.height); //new Vector2(0.0f, 0.333f);                 tl
+            uvs[7] = new Vector2(rect.position.x + rect.width, rect.position.y + rect.height); //new Vector2(0.333f, 0.333f);                    tr
+
+            firstOrDefault = rects.FirstOrDefault(o => o.Face.Contains(CubeFaces.LEFT));
+            rect = firstOrDefault?.Rect ?? rects[0].Rect;
+            // Left
+            uvs[16] = rect.position; //new Vector2(0.0f, 0.0f);                                                 bl
+            uvs[19] = new Vector2(rect.position.x + rect.width, rect.position.y); //new Vector2(0.333f, 0.0f);                 br
+            uvs[17] = new Vector2(rect.position.x, rect.position.y + rect.height); //new Vector2(0.0f, 0.333f);                tl
+            uvs[18] = new Vector2(rect.position.x + rect.width, rect.position.y + rect.height); //new Vector2(0.333f, 0.333f);                   tr
+
+            firstOrDefault = rects.FirstOrDefault(o => o.Face.Contains(CubeFaces.RIGHT));
+            rect = firstOrDefault?.Rect ?? rects[0].Rect;
+            // Right        
+            uvs[20] = rect.position; //new Vector2(0.0f, 0.0f);                                                 bl
+            uvs[21] = new Vector2(rect.position.x + rect.width, rect.position.y); //new Vector2(0.333f, 0.0f);                 br
+            uvs[23] = new Vector2(rect.position.x, rect.position.y + rect.height); //new Vector2(0.0f, 0.333f);                tl
+            uvs[22] = new Vector2(rect.position.x + rect.width, rect.position.y + rect.height); //new Vector2(0.333f, 0.333f);                   tr
+
+            firstOrDefault = rects.FirstOrDefault(o => o.Face.Contains(CubeFaces.TOP));
+            rect = firstOrDefault?.Rect ?? rects[0].Rect;
+            // Top
+            uvs[8] = rect.position; //new Vector2(0.0f, 0.0f);                                                  bl
+            uvs[9] = new Vector2(rect.position.x + rect.width, rect.position.y); //new Vector2(0.333f, 0.0f);                  br
+            uvs[4] = new Vector2(rect.position.x, rect.position.y + rect.height); //new Vector2(0.0f, 0.333f);                 tl
+            uvs[5] = new Vector2(rect.position.x + rect.width, rect.position.y + rect.height); //new Vector2(0.333f, 0.333f);                    tr
+
+            firstOrDefault = rects.FirstOrDefault(o => o.Face.Contains(CubeFaces.BOTTOM));
+            rect = firstOrDefault?.Rect ?? rects[0].Rect;
+            // Bottom
+            uvs[12] = rect.position; //new Vector2(0.0f, 0.0f);                                                  bl
+            uvs[14] = new Vector2(rect.position.x + rect.width, rect.position.y); //new Vector2(0.333f, 0.0f);                  br
+            uvs[15] = new Vector2(rect.position.x, rect.position.y + rect.height); //new Vector2(0.0f, 0.333f);                 tl
+            uvs[13] = new Vector2(rect.position.x + rect.width, rect.position.y + rect.height); //new Vector2(0.333f, 0.333f);                    tr
+
+            mesh.uv = uvs;
+            GetComponent<MeshFilter>().mesh = mesh;
+            GetComponent<MeshRenderer>().material.mainTexture = Atlas;
+        }
+    }
 }
