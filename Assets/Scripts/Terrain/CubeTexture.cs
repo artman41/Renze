@@ -24,10 +24,11 @@ public class CubeTexture : MonoBehaviour {
 
 	    // Front  
         uvs[0] = rects[0].min;  //new Vector2(0.0f, 0.0f);
-	    uvs[1] = new Vector2(0.333f, 0.0f);
-	    uvs[2] = new Vector2(0.0f, 0.333f);
+        uvs[1] = new Vector2(rects[0].width, 0.0f); //new Vector2(0.333f, 0.0f);
+        uvs[2] = new Vector2(0.0f, rects[0].height); //new Vector2(0.0f, 0.333f);
 	    uvs[3] = rects[0].max; //new Vector2(0.333f, 0.333f);
 
+        /*
 	    // Top
 	    uvs[8] = new Vector2(0.334f, 0.0f);
 	    uvs[9] = new Vector2(0.666f, 0.0f);
@@ -57,7 +58,7 @@ public class CubeTexture : MonoBehaviour {
 	    uvs[22] = new Vector2(1.00f, 0.334f);
 	    uvs[23] = new Vector2(0.667f, 0.666f);
 	    uvs[21] = new Vector2(1.0f, 0.666f);
-
+        */
 	    mesh.uv = uvs;
     }
 	
