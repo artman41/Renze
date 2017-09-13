@@ -43,6 +43,10 @@ namespace Assets.Scripts.Terrain {
         public TextureClassifier[] Textures; //front, side, top
         [ReadOnly] public Texture2D Atlas;
         [ReadOnly] public List<RectClassifier> rects;
+        /// <summary>
+        /// Front, Back, Left, Right, Top, Bottom
+        /// </summary>
+        public readonly Tuple<int[], CubeFaces>[] uvOrder = {new Tuple<int[], CubeFaces>( new int[]{0,1,2,3}, CubeFaces.FRONT), new Tuple<int[], CubeFaces>(new int[]{10,11,6,7}, CubeFaces.BACK), new Tuple<int[], CubeFaces>(new int[] { 16,19,17,18 }, CubeFaces.LEFT), new Tuple<int[], CubeFaces>(new int[] { 20,21,23,22 }, CubeFaces.RIGHT), new Tuple<int[], CubeFaces>(new int[] { 8,9,4,5 }, CubeFaces.TOP), new Tuple<int[], CubeFaces>(new int[] { 12, 14, 15, 13 }, CubeFaces.BOTTOM) };
 
         // Use this for initialization
         void Start() {
@@ -65,53 +69,14 @@ namespace Assets.Scripts.Terrain {
 
             var uvs = mesh.uv;
 
-            var firstOrDefault = rects.FirstOrDefault(o => o.Face.Contains(CubeFaces.FRONT));
-            var rect = firstOrDefault?.Rect ?? rects[0].Rect;
-            // Front  
-            uvs[0] = rect.position; //new Vector2(0.0f, 0.0f);                                                  bl
-            uvs[1] = new Vector2(rect.position.x + rect.width, rect.position.y); //new Vector2(0.333f, 0.0f);                  br
-            uvs[2] = new Vector2(rect.position.x, rect.position.y + rect.height); //new Vector2(0.0f, 0.333f);                 tl
-            uvs[3] = new Vector2(rect.position.x + rect.width, rect.position.y + rect.height); //new Vector2(0.333f, 0.333f);                    tr
+            foreach (var item in uvOrder) {
+                var rect = rects.FirstOrDefault(o => o.Face.Contains(item.Item2))?.Rect ?? rects[0].Rect;
 
-            firstOrDefault = rects.FirstOrDefault(o => o.Face.Contains(CubeFaces.BACK));
-            rect = firstOrDefault?.Rect ?? rects[0].Rect;
-            // Back
-            uvs[10] = rect.position; //new Vector2(0.0f, 0.0f);                                                 bl
-            uvs[11] = new Vector2(rect.position.x + rect.width, rect.position.y); //new Vector2(0.333f, 0.0f);                 br
-            uvs[6] = new Vector2(rect.position.x, rect.position.y + rect.height); //new Vector2(0.0f, 0.333f);                 tl
-            uvs[7] = new Vector2(rect.position.x + rect.width, rect.position.y + rect.height); //new Vector2(0.333f, 0.333f);                    tr
-
-            firstOrDefault = rects.FirstOrDefault(o => o.Face.Contains(CubeFaces.LEFT));
-            rect = firstOrDefault?.Rect ?? rects[0].Rect;
-            // Left
-            uvs[16] = rect.position; //new Vector2(0.0f, 0.0f);                                                 bl
-            uvs[19] = new Vector2(rect.position.x + rect.width, rect.position.y); //new Vector2(0.333f, 0.0f);                 br
-            uvs[17] = new Vector2(rect.position.x, rect.position.y + rect.height); //new Vector2(0.0f, 0.333f);                tl
-            uvs[18] = new Vector2(rect.position.x + rect.width, rect.position.y + rect.height); //new Vector2(0.333f, 0.333f);                   tr
-
-            firstOrDefault = rects.FirstOrDefault(o => o.Face.Contains(CubeFaces.RIGHT));
-            rect = firstOrDefault?.Rect ?? rects[0].Rect;
-            // Right        
-            uvs[20] = rect.position; //new Vector2(0.0f, 0.0f);                                                 bl
-            uvs[21] = new Vector2(rect.position.x + rect.width, rect.position.y); //new Vector2(0.333f, 0.0f);                 br
-            uvs[23] = new Vector2(rect.position.x, rect.position.y + rect.height); //new Vector2(0.0f, 0.333f);                tl
-            uvs[22] = new Vector2(rect.position.x + rect.width, rect.position.y + rect.height); //new Vector2(0.333f, 0.333f);                   tr
-
-            firstOrDefault = rects.FirstOrDefault(o => o.Face.Contains(CubeFaces.TOP));
-            rect = firstOrDefault?.Rect ?? rects[0].Rect;
-            // Top
-            uvs[8] = rect.position; //new Vector2(0.0f, 0.0f);                                                  bl
-            uvs[9] = new Vector2(rect.position.x + rect.width, rect.position.y); //new Vector2(0.333f, 0.0f);                  br
-            uvs[4] = new Vector2(rect.position.x, rect.position.y + rect.height); //new Vector2(0.0f, 0.333f);                 tl
-            uvs[5] = new Vector2(rect.position.x + rect.width, rect.position.y + rect.height); //new Vector2(0.333f, 0.333f);                    tr
-
-            firstOrDefault = rects.FirstOrDefault(o => o.Face.Contains(CubeFaces.BOTTOM));
-            rect = firstOrDefault?.Rect ?? rects[0].Rect;
-            // Bottom
-            uvs[12] = rect.position; //new Vector2(0.0f, 0.0f);                                                  bl
-            uvs[14] = new Vector2(rect.position.x + rect.width, rect.position.y); //new Vector2(0.333f, 0.0f);                  br
-            uvs[15] = new Vector2(rect.position.x, rect.position.y + rect.height); //new Vector2(0.0f, 0.333f);                 tl
-            uvs[13] = new Vector2(rect.position.x + rect.width, rect.position.y + rect.height); //new Vector2(0.333f, 0.333f);                    tr
+                uvs[item.Item1[0]] = rect.position; 
+                uvs[item.Item1[1]] = new Vector2(rect.position.x + rect.width, rect.position.y); 
+                uvs[item.Item1[2]] = new Vector2(rect.position.x, rect.position.y + rect.height); 
+                uvs[item.Item1[3]] = new Vector2(rect.position.x + rect.width, rect.position.y + rect.height); 
+            }
 
             mesh.uv = uvs;
             GetComponent<MeshFilter>().mesh = mesh;
