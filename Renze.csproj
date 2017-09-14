@@ -99,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shaders\8BitShader.shader" />
+    <None Include="Assets\Shaders\SparksShader.shader" />
     <None Include="Assets\StarNestSkybox\StarNest.shader" />
     <None Include="Assets\StarNestSkybox\StarNestSkybox.shader" />
     <None Include="Assets\StarNestSkybox\StarNestSkyboxMask.shader" />

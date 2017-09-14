@@ -54,7 +54,7 @@ public class CameraScreenGrab : MonoBehaviour {
 			                   "}" +
 			                   "}"
 			                   );*/  //ORIGINAL SHADER 
-		    mat = new Material(Shader.Find("Custom/8BitShader")); //Shader Corrected for Unity 2017
+		    mat = new Material(Shader.Find("Renze/8BitShader")); //Shader Corrected for Unity 2017
 		}
 		// Draw a quad over the whole screen with the above shader
 		GL.PushMatrix ();

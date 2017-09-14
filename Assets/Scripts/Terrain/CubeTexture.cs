@@ -46,7 +46,14 @@ namespace Assets.Scripts.Terrain {
         /// <summary>
         /// Front, Back, Left, Right, Top, Bottom
         /// </summary>
-        public readonly Tuple<int[], CubeFaces>[] uvOrder = {new Tuple<int[], CubeFaces>( new int[]{0,1,2,3}, CubeFaces.FRONT), new Tuple<int[], CubeFaces>(new int[]{10,11,6,7}, CubeFaces.BACK), new Tuple<int[], CubeFaces>(new int[] { 16,19,17,18 }, CubeFaces.LEFT), new Tuple<int[], CubeFaces>(new int[] { 20,21,23,22 }, CubeFaces.RIGHT), new Tuple<int[], CubeFaces>(new int[] { 8,9,4,5 }, CubeFaces.TOP), new Tuple<int[], CubeFaces>(new int[] { 12, 14, 15, 13 }, CubeFaces.BOTTOM) };
+        public readonly Tuple<int[], CubeFaces>[] uvOrder = {
+            new Tuple<int[], CubeFaces>(new int[] {0, 1, 2, 3}, CubeFaces.FRONT),
+            new Tuple<int[], CubeFaces>(new int[] {10, 11, 6, 7}, CubeFaces.BACK),
+            new Tuple<int[], CubeFaces>(new int[] {16, 19, 17, 18}, CubeFaces.LEFT),
+            new Tuple<int[], CubeFaces>(new int[] {20, 21, 23, 22}, CubeFaces.RIGHT),
+            new Tuple<int[], CubeFaces>(new int[] {8, 9, 4, 5}, CubeFaces.TOP),
+            new Tuple<int[], CubeFaces>(new int[] {12, 14, 15, 1}, CubeFaces.BOTTOM)
+        };
 
         // Use this for initialization
         void Start() {
@@ -72,10 +79,10 @@ namespace Assets.Scripts.Terrain {
             foreach (var item in uvOrder) {
                 var rect = rects.FirstOrDefault(o => o.Face.Contains(item.Item2))?.Rect ?? rects[0].Rect;
 
-                uvs[item.Item1[0]] = rect.position; 
-                uvs[item.Item1[1]] = new Vector2(rect.position.x + rect.width, rect.position.y); 
-                uvs[item.Item1[2]] = new Vector2(rect.position.x, rect.position.y + rect.height); 
-                uvs[item.Item1[3]] = new Vector2(rect.position.x + rect.width, rect.position.y + rect.height); 
+                uvs[item.Item1[0]] = rect.position;
+                uvs[item.Item1[1]] = new Vector2(rect.position.x + rect.width, rect.position.y);
+                uvs[item.Item1[2]] = new Vector2(rect.position.x, rect.position.y + rect.height);
+                uvs[item.Item1[3]] = new Vector2(rect.position.x + rect.width, rect.position.y + rect.height);
             }
 
             mesh.uv = uvs;

@@ -1,5 +1,5 @@
-﻿Shader "Custom/8BitShader" {
-	SubShader{
+﻿Shader "Renze/8BitShader" {
+	SubShader {
 		Pass {
 			ZTest Always Cull Off ZWrite Off
 			ColorMask A
