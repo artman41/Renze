@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,7 @@ namespace Assets.Editor {
                 targ.TargetCamera = targ.AllCameras[EditorGUILayout.Popup("Target Camera", Array.IndexOf(targ.AllCameras, targ.TargetCamera), targ.AllCameras.Select(o => o.name).ToArray())];
             }
 
+            #region Horizontal 1
             GUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Resolution", GUILayout.MaxWidth(149));
             var x = EditorGUIUtility.labelWidth;
@@ -31,18 +33,24 @@ namespace Assets.Editor {
             targ.Resolution.y = EditorGUILayout.IntField("Height", targ.Resolution.y);
             EditorGUIUtility.labelWidth = x;
             GUILayout.EndHorizontal();
+            #endregion
 
             targ.ScreenshotDirectory = EditorGUILayout.TextField("Screenshot Directory", targ.ScreenshotDirectory);
 
+            #region Horizontal 2
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("Take Screenshot")) {
                 targ.ScreenShot();
             }
-            if (GUILayout.Button("Open Directory")) {
-                EditorUtility.RevealInFinder(targ.Screenshots?[0].FullName ?? targ.ScreenshotDirectory);
+            if (targ.Screenshots.Length != 0) {
+                if (GUILayout.Button("Open Directory")) {
+                    EditorUtility.RevealInFinder(targ.Screenshots?[0]?.FullName);
+                }
             }
             GUILayout.EndHorizontal();
+            #endregion
 
+            if (targ.Screenshots.Length == 0) return;
             Screenshots = EditorGUILayout.Foldout(Screenshots, "Screenshots");
             if (Screenshots) {
                 targ.Screenshots.ForEach(o => {
