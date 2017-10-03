@@ -52,7 +52,7 @@ namespace Assets.Scripts.Terrain {
             new Tuple<int[], CubeFaces>(new int[] {16, 19, 17, 18}, CubeFaces.LEFT),
             new Tuple<int[], CubeFaces>(new int[] {20, 21, 23, 22}, CubeFaces.RIGHT),
             new Tuple<int[], CubeFaces>(new int[] {8, 9, 4, 5}, CubeFaces.TOP),
-            new Tuple<int[], CubeFaces>(new int[] {12, 14, 15, 1}, CubeFaces.BOTTOM)
+            new Tuple<int[], CubeFaces>(new int[] {12, 14, 15, 13}, CubeFaces.BOTTOM)
         };
 
         // Use this for initialization

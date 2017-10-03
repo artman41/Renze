@@ -4,9 +4,10 @@
  */
 using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 [ExecuteInEditMode]
-public class CameraScreenGrab : MonoBehaviour {
+public class CameraShader : MonoBehaviour {
 	
 	//how chunky to make the screen
 	protected int pixelSize;
@@ -18,6 +19,8 @@ public class CameraScreenGrab : MonoBehaviour {
 	private Material mat;
     private Camera Camera => Camera.main; //Created a pointer to MainCam to prevent changes to previous code
 
+    public Shader Shader;
+
     Texture2D tex;
 	
 	void Start () {
@@ -26,9 +29,7 @@ public class CameraScreenGrab : MonoBehaviour {
 		pixelSize = Screen.width / gridWidth;
 
 		Camera.pixelRect = new Rect(0,0,Screen.width/pixelSize,Screen.height/pixelSize);
-
-		for (int i = 0; i < otherCameras.Length; i++)
-			otherCameras[i].pixelRect = new Rect(0,0,Screen.width/pixelSize,Screen.height/pixelSize);
+	    otherCameras.ForEach(o => o.pixelRect = new Rect(0, 0, Screen.width / pixelSize, Screen.height / pixelSize));
 	}
 	
 	void OnGUI()
@@ -54,7 +55,7 @@ public class CameraScreenGrab : MonoBehaviour {
 			                   "}" +
 			                   "}"
 			                   );*/  //ORIGINAL SHADER 
-		    mat = new Material(Shader.Find("Renze/8BitShader")); //Shader Corrected for Unity 2017
+		    mat = new Material(Shader); //Shader Corrected for Unity 2017
 		}
 		// Draw a quad over the whole screen with the above shader
 		GL.PushMatrix ();
@@ -72,9 +73,10 @@ public class CameraScreenGrab : MonoBehaviour {
 		
 		DestroyImmediate(tex);
 
-		tex = new Texture2D(Mathf.FloorToInt(Camera.pixelWidth), Mathf.FloorToInt(Camera.pixelHeight));
-		tex.filterMode = filterMode;
-		tex.ReadPixels(new Rect(0, 0, Camera.pixelWidth, Camera.pixelHeight), 0, 0);
+        tex = new Texture2D(Mathf.FloorToInt(Camera.pixelWidth), Mathf.FloorToInt(Camera.pixelHeight)) {
+            filterMode = filterMode
+        };
+        tex.ReadPixels(new Rect(0, 0, Camera.pixelWidth, Camera.pixelHeight), 0, 0);
 		tex.Apply();
 	}
 	

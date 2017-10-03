@@ -23,10 +23,10 @@ namespace Assets.Scripts.Camera {
         Single, Multi
     }
 
-    [RequireComponent(typeof(CameraScreenGrab))]
+    [RequireComponent(typeof(CameraShader))]
     public class CameraScreenShot : MonoBehaviour {
         private UnityEngine.Camera Camera => UnityEngine.Camera.main;
-        private UnityEngine.Camera[] OtherCameras => GetComponent<CameraScreenGrab>().otherCameras;
+        private UnityEngine.Camera[] OtherCameras => GetComponent<CameraShader>().otherCameras;
         public UnityEngine.Camera[] AllCameras => GetCameras();
         public FileInfo[] Screenshots => GetScreenshots();
 
